@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html' %}
+
+<h1>Tasks</h1>
+
+{% block content %}
+
+{%for task in tasks %}
+    <div>
+        <h1 style="background-color: #222222;width: fit-content;padding: 1rem;color: aliceblue;"> {{task.title}}{% if task.done == False %} <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(247, 10, 10)"><path d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.493 2 11.953 2zM12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8z"></path><path d="M11 7h2v7h-2zm0 8h2v2h-2z"></path></svg> {% else %} <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(14, 250, 6);transform: ;msFilter:;"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg> {% endif %}</h1>
+
+        <p>{{task.description}}</p>
+        <p>Project: {{task.project.name}}</p>
+        <button>Delete</button>
+        <button>Done</button>
+    </div>
+{%endfor%}
+
+{% endblock %}
